@@ -1,0 +1,32 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        emacs-version:
+          - '27.2'
+          - '28.2'
+          - '29.1'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Emacs
+        uses: purcell/setup-emacs@master
+        with:
+          version: ${{ matrix.emacs-version }}
+
+      - name: Run tests
+        run: |
+          emacs --version
+          emacs -batch -l typewrite.el -l typewrite-test.el -f ert-run-tests-batch-and-exit

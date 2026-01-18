@@ -51,9 +51,15 @@ Provides a typewriter effect for inserting text into Emacs buffers, gradually re
 (setq typewrite-default-inhibit-read-only t)
 ```
 
-## Integration with Polymuse
+## Use Cases
 
-`typewrite.el` is used internally by `polymuse.el` to animate the AI's code review responses, creating a more engaging experience as suggestions appear gradually rather than all at once.
+`typewrite.el` can be used to animate text insertion in various contexts:
+
+- **LLM/AI responses**: Display AI-generated text gradually for a more natural feel
+- **Animated log output**: Make streaming logs more visually engaging
+- **Code review tools**: Applications like `polymuse.el` use it to animate AI suggestions
+- **Interactive tutorials**: Reveal instructions step-by-step
+- **Any application** where gradual text reveal improves user experience
 
 ## Installation
 
@@ -63,7 +69,7 @@ This package provides a Nix flake for easy integration into NixOS or Home Manage
 
 ```nix
 {
-  inputs.typewrite.url = "github:fudoniten/typewrite";
+  inputs.typewrite.url = "github:fudoniten/typewrite.el";
 
   # In your Home Manager or NixOS configuration:
   nixpkgs.overlays = [ typewrite.overlays.default ];
@@ -78,7 +84,7 @@ This package provides a Nix flake for easy integration into NixOS or Home Manage
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/fudoniten/typewrite.git
+   git clone https://github.com/fudoniten/typewrite.el.git
    ```
 
 2. Add the package to your load path:
@@ -143,4 +149,4 @@ When contributing, please ensure:
 ## Author
 
 - **Author**: Niten <niten@fudo.org>
-- **Homepage**: https://github.com/fudoniten/typewrite
+- **Homepage**: https://github.com/fudoniten/typewrite.el
